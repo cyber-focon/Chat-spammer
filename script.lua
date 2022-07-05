@@ -82,6 +82,8 @@ quit.MouseButton1Down:connect(function()
 	end
 end)
 
-while spam do
-	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(message.Text, "all")
+while backgroud.Active and backgroud.Visible do
+	if spam then
+		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Test", "all")
+	end
 end
