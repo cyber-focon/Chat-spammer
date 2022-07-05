@@ -49,7 +49,7 @@ toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 toggle.TextSize = 20.000
 
 toggle.MouseButton1Down:connect(function()
-	if spam == true then
+	if spam then
 		spam = false
 		toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
 		toggle.Text = "Spam START"
@@ -57,6 +57,9 @@ toggle.MouseButton1Down:connect(function()
 		spam = true
 		toggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 		toggle.Text = "Spam STOP"
-		local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer("Hey", "all")
 	end
 end)
+
+while spam do
+	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(message.Text, "all")
+end
