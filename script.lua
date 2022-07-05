@@ -73,10 +73,12 @@ toggle.MouseButton1Down:connect(function()
 end)
 
 quit.MouseButton1Down:connect(function()
-	if backgroud.Active then
+	if backgroud.Active and backgroud.Visible then
 		backgroud.Active = false
+		backgroud.Visible = false
 	else
 		backgroud.Active = true
+		backgroud.Visible = true
 	end
 end)
 
