@@ -83,8 +83,8 @@ quit.MouseButton1Down:connect(function()
 	end
 end)
 
-while spam do
-	if backgroud.Active and backgroud.Visible then
+while true do wait(1)
+	if backgroud.Active and backgroud.Visible and spam then
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Test", "all")
 	end
 end
