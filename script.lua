@@ -57,5 +57,6 @@ toggle.MouseButton1Down:connect(function()
 		spam = true
 		toggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 		toggle.Text = "Spam STOP"
+		local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer("Hey", "all")
 	end
 end)
