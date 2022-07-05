@@ -6,7 +6,7 @@ local backgroud = Instance.new("Frame")
 local message = Instance.new("TextBox")
 local title = Instance.new("TextLabel")
 local toggle = Instance.new("TextButton")
-local spam = false
+local quit = Instance.new("TextButton")
 
 ScreenGui.Parent = game.CoreGui
 
@@ -31,7 +31,7 @@ message.TextSize = 19.000
 title.Name = "title"
 title.Parent = backgroud
 title.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
-title.Position = UDim2.new(0, 0, -0.000716422917, 0)
+title.Position = UDim2.new(0.00189393945, 0, -0.00444776611, 0)
 title.Size = UDim2.new(0, 527, 0, 35)
 title.Font = Enum.Font.SourceSans
 title.Text = "Chat Spammer | OPEN SOURCE"
@@ -48,6 +48,18 @@ toggle.Text = "Spam START"
 toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 toggle.TextSize = 20.000
 
+quit.Name = "quit"
+quit.Parent = backgroud
+quit.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+quit.BorderSizePixel = 0
+quit.Position = UDim2.new(0.9375, 0, 0, 0)
+quit.Size = UDim2.new(0, 33, 0, 33)
+quit.Font = Enum.Font.SourceSans
+quit.Text = "╳"
+quit.TextColor3 = Color3.fromRGB(255, 255, 255)
+quit.TextSize = 30.000
+quit.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
 toggle.MouseButton1Down:connect(function()
 	if spam then
 		spam = false
@@ -57,6 +69,14 @@ toggle.MouseButton1Down:connect(function()
 		spam = true
 		toggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 		toggle.Text = "Spam STOP"
+	end
+end)
+
+quit.MouseButton1Down:connect(function()
+	if quit.Visible then
+		quit.Visible = false
+	else
+		quit.Visible = true
 	end
 end)
 
