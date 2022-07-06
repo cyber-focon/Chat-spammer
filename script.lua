@@ -5,7 +5,7 @@ local title = Instance.new("TextLabel")
 local toggle = Instance.new("TextButton")
 local quit = Instance.new("TextButton")
 local slider = Instance.new("Frame")
-local sliderSelect = Instance.new("Frame")
+local sliderCharge = Instance.new("Frame")
 local sliderButtun = Instance.new("TextButton")
 local sliderInfo = Instance.new("TextLabel")
 local runService = game:GetService("RunService")
@@ -75,6 +75,12 @@ slider.BorderSizePixel = 2
 slider.Position = UDim2.new(0.0859395266, 0, 0.451492548, 0)
 slider.Size = UDim2.new(0, 437, 0, 25)
 
+sliderCharge.Name = "slider"
+sliderCharge.Parent = slider
+sliderCharge.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+sliderCharge.Position = UDim2.new(0, 0, 0, 0)
+sliderCharge.Size = UDim2.new(0, 218, 0, 25)
+
 sliderButtun.Name = "sliderButtun"
 sliderButtun.Parent = slider
 sliderButtun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -137,8 +143,9 @@ uis.InputChanged:Connect(function(input)
 			local relativePos = mouseLoc.X-slider.AbsolutePosition.X
 			local percentage = math.clamp(relativePos/slider.AbsoluteSize.X, 0, 1)
 			sliderButtun.Position = UDim2.new(percentage - 0.0228833, 0, btnPos.Y.Scale, btnPos.X.Offset)
-			sliderInfo.Text = "Time sleep: " .. math.round(percentage*10) .. "s"
-			speed = percentage*10
+			sliderCharge.Size = UDim2.new(0, math.round(percentage*437), 0, 25)
+			sliderInfo.Text = "Time sleep: " .. math.round(percentage*5) .. "s"
+			speed = math.round(percentage*5)
 		end
 	end
 end)
